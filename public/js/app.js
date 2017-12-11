@@ -87153,12 +87153,12 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticStyle: { width: "100%" } }, [
       _c("div", {
-        staticStyle: { width: "50%", display: "inline-block" },
+        staticStyle: { width: "48%", display: "inline-block" },
         attrs: { id: "chart2" }
       }),
       _vm._v(" "),
       _c("div", {
-        staticStyle: { width: "50%", display: "inline-block" },
+        staticStyle: { width: "48%", display: "inline-block" },
         attrs: { id: "chart3" }
       })
     ])

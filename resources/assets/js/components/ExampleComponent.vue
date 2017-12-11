@@ -14,8 +14,8 @@
         </el-menu>
         <div id="chart"></div>
         <div style="width: 100%">
-            <div id="chart2" style="width: 50%;display: inline-block"></div>
-            <div id="chart3" style="width: 50%;display: inline-block"></div>
+            <div id="chart2" style="width: 48%;display: inline-block"></div>
+            <div id="chart3" style="width: 48%;display: inline-block"></div>
         </div>
     </div>
 </template>
