@@ -46885,12 +46885,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 Object.keys(data[0]).forEach(function (column) {
                     columns.push([column]);
                 });
-                chart2.load({
-                    columns: ["temperature", data[0].temperature]
-                });
-                chart3.load({
-                    columns: ["humidity", data[0].humidity]
-                });
                 data.forEach(function (sensorData) {
                     var i = 0;
                     Object.keys(sensorData).forEach(function (column) {
