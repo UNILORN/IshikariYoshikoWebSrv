@@ -92,10 +92,10 @@
                             columns.push([column])
                         })
                         chart2.load({
-                            columns: ["data",Math.round(data[0]["temperature"]*10)/10]
+                            columns: [["data",Math.round(data[0]["temperature"]*10)/10]]
                         });
                         chart3.load({
-                            columns: ["data",Math.round(data[0]["humidity"]*10)/10]
+                            columns: [["data",Math.round(data[0]["humidity"]*10)/10]]
                         });
                         data.forEach((sensorData)=>{
                             var i = 0

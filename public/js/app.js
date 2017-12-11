@@ -46886,10 +46886,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     columns.push([column]);
                 });
                 chart2.load({
-                    columns: ["data", Math.round(data[0]["temperature"] * 10) / 10]
+                    columns: [["data", Math.round(data[0]["temperature"] * 10) / 10]]
                 });
                 chart3.load({
-                    columns: ["data", Math.round(data[0]["humidity"] * 10) / 10]
+                    columns: [["data", Math.round(data[0]["humidity"] * 10) / 10]]
                 });
                 data.forEach(function (sensorData) {
                     var i = 0;
