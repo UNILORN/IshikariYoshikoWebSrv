@@ -91,11 +91,12 @@
                         Object.keys(data[0]).forEach((column)=>{
                             columns.push([column])
                         })
+                        console.log(data[0]["temperature"])
                         chart2.load({
-                            columns: ["data",data[0].temperature]
+                            columns: ["data",data[0]["temperature"]]
                         });
                         chart3.load({
-                            columns: ["data",data[0].humidity]
+                            columns: ["data",data[0]["humidity"]]
                         });
                         data.forEach((sensorData)=>{
                             var i = 0
