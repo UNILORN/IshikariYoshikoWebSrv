@@ -1,5 +1,6 @@
 <?php
 
+use App\SensorEloquent;
 use Illuminate\Http\Request;
 
 /*
@@ -15,4 +16,11 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+Route::get('/sensor',function(){
+    $data = SensorEloquent::limit(30)->get();
+    dd($data);
+    return $data;
 });

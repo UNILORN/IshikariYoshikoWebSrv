@@ -13,7 +13,7 @@
         <link href="/c3-0.4.18/c3.css" rel="stylesheet">
 
         <!-- Load d3.js and c3.js -->
-        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
         <script src="/c3-0.4.18/c3.min.js"></script>
     </head>
     <body>
