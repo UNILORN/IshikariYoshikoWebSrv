@@ -46800,6 +46800,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -87139,14 +87141,29 @@ var render = function() {
       _vm._v(" "),
       _c("div", { attrs: { id: "chart" } }),
       _vm._v(" "),
-      _c("div", { attrs: { id: "chart2" } }),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "chart3" } })
+      _vm._m(0, false, false)
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticStyle: { width: "100%" } }, [
+      _c("div", {
+        staticStyle: { width: "50%", display: "inline-block" },
+        attrs: { id: "chart2" }
+      }),
+      _vm._v(" "),
+      _c("div", {
+        staticStyle: { width: "50%", display: "inline-block" },
+        attrs: { id: "chart3" }
+      })
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

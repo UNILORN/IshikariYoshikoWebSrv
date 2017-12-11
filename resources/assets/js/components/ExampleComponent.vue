@@ -13,8 +13,10 @@
             <el-menu-item index="2">Control</el-menu-item>
         </el-menu>
         <div id="chart"></div>
-        <div id="chart2"></div>
-        <div id="chart3"></div>
+        <div style="width: 100%">
+            <div id="chart2" style="width: 50%;display: inline-block"></div>
+            <div id="chart3" style="width: 50%;display: inline-block"></div>
+        </div>
     </div>
 </template>
 
