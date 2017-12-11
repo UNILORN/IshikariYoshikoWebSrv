@@ -62,9 +62,15 @@
                     height: 180
                 },
                 gauge: {
+                    label: {
+                        format: function (value, ratio) {
+                            return value;
+                        },
+                        show: false // to turn off the min/max labels.
+                    },
                     min: 0, // 0 is default, //can handle negative min e.g. vacuum / voltage / current flow / rate of change
                     max: 100, // 100 is default
-                    units: ' ℃',
+                    units: '度',
                 },
             });
 
