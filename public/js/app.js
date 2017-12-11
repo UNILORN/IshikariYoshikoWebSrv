@@ -46885,12 +46885,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 Object.keys(data[0]).forEach(function (column) {
                     columns.push([column]);
                 });
-                console.log(data[0]["temperature"]);
                 chart2.load({
-                    columns: ["data", data[0]["temperature"]]
+                    columns: ["data", Math.round(data[0]["temperature"] * 10) / 10]
                 });
                 chart3.load({
-                    columns: ["data", data[0]["humidity"]]
+                    columns: ["data", Math.round(data[0]["humidity"] * 10) / 10]
                 });
                 data.forEach(function (sensorData) {
                     var i = 0;
