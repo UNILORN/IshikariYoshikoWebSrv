@@ -46830,13 +46830,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var columns = [];
                 var data = response.data;
                 Object.keys(data[0]).forEach(function (column) {
-                    columns.push([column]);
+                    if (column == !"id") {
+                        columns.push([column]);
+                    }
                 });
                 data.forEach(function (sensorData) {
                     var i = 0;
                     Object.keys(sensorData).forEach(function (column) {
-                        columns[i].push(sensorData[column]);
-                        i += 1;
+                        if (column == !"id") {
+                            columns[i].push(sensorData[column]);
+                            i += 1;
+                        }
                     });
                 });
                 console.log(columns);
