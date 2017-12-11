@@ -40,12 +40,17 @@
             var chart2 = c3.generate({
                 bindto: '#chart2',
                 data: {
-                    columns: [
-                    ],
+                    columns: [],
                     type: 'gauge',
-                    onclick: function (d, i) { console.log("onclick", d, i); },
-                    onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-                    onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+                    onclick: function (d, i) {
+                        console.log("onclick", d, i);
+                    },
+                    onmouseover: function (d, i) {
+                        console.log("onmouseover", d, i);
+                    },
+                    onmouseout: function (d, i) {
+                        console.log("onmouseout", d, i);
+                    }
                 },
                 color: {
                     pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
@@ -55,18 +60,28 @@
                 },
                 size: {
                     height: 180
-                }
+                },
+                gauge: {
+                    min: 0, // 0 is default, //can handle negative min e.g. vacuum / voltage / current flow / rate of change
+                    max: 100, // 100 is default
+                    units: ' ℃',
+                },
             });
 
             var chart3 = c3.generate({
                 bindto: '#chart3',
                 data: {
-                    columns: [
-                    ],
+                    columns: [],
                     type: 'gauge',
-                    onclick: function (d, i) { console.log("onclick", d, i); },
-                    onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-                    onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+                    onclick: function (d, i) {
+                        console.log("onclick", d, i);
+                    },
+                    onmouseover: function (d, i) {
+                        console.log("onmouseover", d, i);
+                    },
+                    onmouseout: function (d, i) {
+                        console.log("onmouseout", d, i);
+                    }
                 },
                 color: {
                     pattern: ['#60B0FF'], // the three color levels for the percentage values.
@@ -83,23 +98,23 @@
                     type: 'spline'
                 }
             });
-            setInterval(()=>{
+            setInterval(() => {
                 axios.get(`/api/sensor`)
                     .then(response => {
                         let columns = []
                         let data = response.data
-                        Object.keys(data[0]).forEach((column)=>{
+                        Object.keys(data[0]).forEach((column) => {
                             columns.push([column])
                         })
                         chart2.load({
-                            columns: [["data",Math.round(data[0]["temperature"]*10)/10]]
+                            columns: [["data", Math.round(data[0]["temperature"] * 10) / 10]]
                         });
                         chart3.load({
-                            columns: [["data",Math.round(data[0]["humidity"]*10)/10]]
+                            columns: [["data", Math.round(data[0]["humidity"] * 10) / 10]]
                         });
-                        data.forEach((sensorData)=>{
+                        data.forEach((sensorData) => {
                             var i = 0
-                            Object.keys(sensorData).forEach((column)=>{
+                            Object.keys(sensorData).forEach((column) => {
                                 columns[i].push(sensorData[column])
                                 i += 1
                             })
@@ -112,7 +127,7 @@
                         this.errors.push(e)
                     })
                 console.log("Success!!")
-            },1000)
+            }, 1000)
         }
     }
 
