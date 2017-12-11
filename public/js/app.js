@@ -46798,6 +46798,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -46819,11 +46821,61 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         console.log('Component mounted.');
+
+        var chart2 = c3.generate({
+            bindto: '#chart2',
+            data: {
+                columns: [],
+                type: 'gauge',
+                onclick: function onclick(d, i) {
+                    console.log("onclick", d, i);
+                },
+                onmouseover: function onmouseover(d, i) {
+                    console.log("onmouseover", d, i);
+                },
+                onmouseout: function onmouseout(d, i) {
+                    console.log("onmouseout", d, i);
+                }
+            },
+            color: {
+                pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
+                threshold: {
+                    values: [30, 60, 90, 100]
+                }
+            },
+            size: {
+                height: 180
+            }
+        });
+
+        var chart3 = c3.generate({
+            bindto: '#chart3',
+            data: {
+                columns: [],
+                type: 'gauge',
+                onclick: function onclick(d, i) {
+                    console.log("onclick", d, i);
+                },
+                onmouseover: function onmouseover(d, i) {
+                    console.log("onmouseover", d, i);
+                },
+                onmouseout: function onmouseout(d, i) {
+                    console.log("onmouseout", d, i);
+                }
+            },
+            color: {
+                pattern: ['#60B0FF'] // the three color levels for the percentage values.
+            },
+            size: {
+                height: 180
+            }
+        });
+
         var chart = c3.generate({
             bindto: '#chart',
             data: {
                 columns: [],
-                type: 'scatter'
+                type: 'spline'
             }
         });
         setInterval(function () {
@@ -46832,6 +46884,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var data = response.data;
                 Object.keys(data[0]).forEach(function (column) {
                     columns.push([column]);
+                });
+                chart2.load({
+                    columns: ["temperature", data[0]["temperature"]]
+                });
+                chart3.load({
+                    columns: ["humidity", data[0]["humidity"]]
                 });
                 data.forEach(function (sensorData) {
                     var i = 0;
@@ -87069,7 +87127,11 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { attrs: { id: "chart" } })
+      _c("div", { attrs: { id: "chart" } }),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "chart2" } }),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "chart3" } })
     ],
     1
   )
