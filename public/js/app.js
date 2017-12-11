@@ -46855,7 +46855,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 },
                 min: 0, // 0 is default, //can handle negative min e.g. vacuum / voltage / current flow / rate of change
                 max: 100, // 100 is default
-                units: '度'
+                units: ''
             }
         });
 
