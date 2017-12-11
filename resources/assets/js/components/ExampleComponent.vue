@@ -46,17 +46,13 @@
                         let columns = []
                         let data = response.data
                         Object.keys(data[0]).forEach((column)=>{
-                            if(column ==! "id"){
-                                columns.push([column])
-                            }
+                            columns.push([column])
                         })
                         data.forEach((sensorData)=>{
                             var i = 0
                             Object.keys(sensorData).forEach((column)=>{
-                                if(column ==! "id") {
-                                    columns[i].push(sensorData[column])
-                                    i += 1
-                                }
+                                columns[i].push(sensorData[column])
+                                i += 1
                             })
                         })
                         console.log(columns)

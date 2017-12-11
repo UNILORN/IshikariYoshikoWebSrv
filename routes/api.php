@@ -20,6 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('/sensor', function () {
-    $data = SensorEloquent::select("id","temperature","humidity")->orderBy("id","desc")->limit(30)->get();
+    $data = SensorEloquent::select("temperature","humidity")->orderBy("id","desc")->limit(30)->get();
     return $data;
 });
