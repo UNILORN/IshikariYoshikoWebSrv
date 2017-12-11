@@ -19,6 +19,7 @@
 <script>
     import ElementUI from 'element-ui'
     import 'element-ui/lib/theme-chalk/index.css'
+    import axios from 'axios';
 
     export default {
         data() {
@@ -42,17 +43,29 @@
                     ]
                 }
             });
-            setTimeout(()=>{
-                chart.load({
-                    columns: [
-                        ['data1', 300, 100, 250, 150, 300, 150, 500],
-                        ['data2', 100, 200, 150, 50, 100, 250]
-                    ]
-                });
-            },1000)
             setInterval(()=>{
-
-            })
+                axios.get(`/api/sensor`)
+                    .then(response => {
+                        let columns = []
+                        let data = response.data
+                        data[0].sensorData.forEach((volume,column)=>{
+                            columns.push([column])
+                        })
+                        data.forEach((sensorData)=>{
+                            var i = 0
+                            sensorData.forEach((volume,column)=>{
+                                columns[i].push(volume)
+                                i += 1
+                            })
+                        })
+                        chart.load({
+                            columns: columns
+                        });
+                    })
+                    .catch(e => {
+                        this.errors.push(e)
+                    })
+            },1000)
         }
     }
 

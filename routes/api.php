@@ -21,6 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/sensor',function(){
     $data = SensorEloquent::limit(30)->get();
-    dd($data);
     return $data;
 });
