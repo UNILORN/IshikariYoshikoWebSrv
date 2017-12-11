@@ -37,10 +37,7 @@
             var chart = c3.generate({
                 bindto: '#chart',
                 data: {
-                    columns: [
-                        ['data1', 30, 200, 100, 400, 150, 250],
-                        ['data2', 50, 20, 10, 40, 15, 25]
-                    ]
+                    columns: []
                 }
             });
             setInterval(()=>{
@@ -48,16 +45,17 @@
                     .then(response => {
                         let columns = []
                         let data = response.data
-                        data[0].sensorData.forEach((volume,column)=>{
+                        Object.keys(data[0]).forEach((column)=>{
                             columns.push([column])
                         })
                         data.forEach((sensorData)=>{
                             var i = 0
-                            sensorData.forEach((volume,column)=>{
-                                columns[i].push(volume)
+                            Object.keys(sensorData).forEach((column)=>{
+                                columns[i].push(sensorData[column])
                                 i += 1
                             })
                         })
+                        console.log(columns)
                         chart.load({
                             columns: columns
                         });

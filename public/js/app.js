@@ -46822,23 +46822,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var chart = c3.generate({
             bindto: '#chart',
             data: {
-                columns: [['data1', 30, 200, 100, 400, 150, 250], ['data2', 50, 20, 10, 40, 15, 25]]
+                columns: []
             }
         });
         setInterval(function () {
             __WEBPACK_IMPORTED_MODULE_2_axios___default.a.get('/api/sensor').then(function (response) {
                 var columns = [];
                 var data = response.data;
-                data[0].sensorData.forEach(function (volume, column) {
+                Object.keys(data[0]).forEach(function (column) {
                     columns.push([column]);
                 });
                 data.forEach(function (sensorData) {
                     var i = 0;
-                    sensorData.forEach(function (volume, column) {
-                        columns[i].push(volume);
+                    Object.keys(sensorData).forEach(function (column) {
+                        columns[i].push(sensorData[column]);
                         i += 1;
                     });
                 });
+                console.log(columns);
                 chart.load({
                     columns: columns
                 });
