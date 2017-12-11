@@ -46822,7 +46822,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var chart = c3.generate({
             bindto: '#chart',
             data: {
-                columns: []
+                columns: [],
+                type: 'scatter'
             }
         });
         setInterval(function () {
